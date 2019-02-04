@@ -1,0 +1,41 @@
+{% extends "material/base.html" %}
+{% block content %}
+<div class="showcase container blue lighten-3">
+    <div class="row">
+        <div class="col 12 m10 offset-ml center">
+                <h2>Graduate Admissions</h2>
+                <p>ML WEBAPP</p>
+                <a href="{{url_for('index')}}" class="btn btn-small blue white-text waves-effect waves-dark">Back</a>
+                <a href="/admission_webapp/data/Admission_Predict.csv" download="newname" target="_blank" class="btn btn-small blue white-text waves-effect waves-dark" >Download Dataset</a>
+           
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+        {{ df_view.to_html(classes="table striped",na_rep="-") | safe}}
+
+</div>
+
+
+
+<script>
+        jQuery(document).ready(function() {
+          var downloadButton = jQuery('.et-download-button');
+            
+          downloadButton.each(function(index) {
+            jQuery(this).attr('download', '');
+          });
+        });
+        </script>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+{{ super() }}
+
+
+{% endblock %}
